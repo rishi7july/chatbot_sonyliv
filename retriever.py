@@ -43,7 +43,7 @@ def create_embeddings_and_faiss_index(_all_docs, api_key):
     db = FAISS.from_documents(split_documents, embeddings)
     return db
 
-db = create_embeddings_and_faiss_index(all_docs, "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")
+db = create_embeddings_and_faiss_index(all_docs, "sk-proj-DTOU5UOL8kTs5Gt0vS3rT3BlbkFJT8NeZJK1gHt4QBj8YrpW")
 
 # Cache the creation of the language model and document chain
 @st.cache_resource
@@ -83,7 +83,7 @@ def create_llm_and_chain(api_key):
     document_chain = create_stuff_documents_chain(llm, prompt)
     return llm, document_chain
 
-llm, document_chain = create_llm_and_chain("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")
+llm, document_chain = create_llm_and_chain("sk-proj-DTOU5UOL8kTs5Gt0vS3rT3BlbkFJT8NeZJK1gHt4QBj8YrpW")
 
 retriever = db.as_retriever(k=3)
 
