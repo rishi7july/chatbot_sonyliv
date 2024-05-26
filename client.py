@@ -63,5 +63,3 @@ if user_input :
     with st.chat_message('assistant'):
         st.markdown(response)
 
-if __name__ == "__main__":
-    main()
