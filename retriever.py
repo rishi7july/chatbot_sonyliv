@@ -10,13 +10,13 @@ from langchain_openai import ChatOpenAI
 from langchain.chains import create_retrieval_chain, create_history_aware_retriever
 
 # Cache the loading of pickled data
-@st.cache
+@st.cache_data
 def load_pickle(file_path):
     with open(file_path, 'rb') as f:
         return pickle.load(f)
 
 # Load and cache the pickle files
-@st.cache
+@st.cache_data
 def load_all_pickles():
     with ThreadPoolExecutor() as executor:
         hindi_future = executor.submit(load_pickle, 'hindi_originals.pkl')
