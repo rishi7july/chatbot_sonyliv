@@ -9,6 +9,13 @@ from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_openai import ChatOpenAI
 from langchain.chains import create_retrieval_chain, create_history_aware_retriever
 
+import os
+## For importing variable from env files 
+from dotenv import load_dotenv
+load_dotenv()
+api_key = os.getenv("OPENAI_API_KEY")
+
+
 # Cache the loading of pickled data
 @st.cache_data
 def load_pickle(file_path):
@@ -43,7 +50,7 @@ def create_embeddings_and_faiss_index(_all_docs, api_key):
     db = FAISS.from_documents(split_documents, embeddings)
     return db
 
-db = create_embeddings_and_faiss_index(all_docs, "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")
+db = create_embeddings_and_faiss_index(all_docs,api_key)
 
 # Cache the creation of the language model and document chain
 @st.cache_resource
@@ -83,7 +90,7 @@ def create_llm_and_chain(api_key):
     document_chain = create_stuff_documents_chain(llm, prompt)
     return llm, document_chain
 
-llm, document_chain = create_llm_and_chain("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")
+llm, document_chain = create_llm_and_chain(api_key)
 
 retriever = db.as_retriever(k=3)
 
