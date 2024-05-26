@@ -24,10 +24,6 @@ def process_chat(chain,question,chat_history):
 ## StreamLit app 
 import streamlit as st 
 
-if __name__ == "__main__":
-    main()
-
-
 # Initialize chat_history if not already in session state
 if 'chat_history' not in st.session_state:
     st.session_state.chat_history = []
@@ -66,5 +62,6 @@ if user_input :
     # Display the assistant's response
     with st.chat_message('assistant'):
         st.markdown(response)
+
 if __name__ == "__main__":
     main()
