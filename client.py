@@ -66,3 +66,5 @@ if user_input :
     # Display the assistant's response
     with st.chat_message('assistant'):
         st.markdown(response)
+if __name__ == "__main__":
+    main()
