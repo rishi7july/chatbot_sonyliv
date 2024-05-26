@@ -3,3 +3,4 @@ numpy
 faiss-cpu
 openai
 langchain==0.0.16
+langchain_openai
