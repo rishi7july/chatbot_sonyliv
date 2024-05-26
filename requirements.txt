@@ -2,7 +2,7 @@ streamlit==1.9.0
 numpy
 faiss-cpu
 openai
-langchain==0.0.16
+langchain
 langchain_openai
 langchain_community
 langchain_text_splitters
