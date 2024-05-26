@@ -7,4 +7,5 @@ langchain_openai
 langchain_community
 langchain_text_splitters
 langchain_core
+python-dotenv
 pydantic==1.10.9
