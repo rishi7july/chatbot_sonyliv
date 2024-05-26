@@ -3,3 +3,9 @@ numpy
 faiss-cpu
 openai
 langchain==0.0.16
+langchain_openai
+langchain_community
+langchain_text_splitters
+in.chains.combine_documents
+langchain_core
+langchain.chains
