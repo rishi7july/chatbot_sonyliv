@@ -8,6 +8,7 @@ from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_openai import ChatOpenAI
 from langchain.chains import create_retrieval_chain, create_history_aware_retriever
+from config import OPENAI_API_KEY
 
 import os
 ## For importing variable from env files 
@@ -50,7 +51,7 @@ def create_embeddings_and_faiss_index(_all_docs, api_key):
     db = FAISS.from_documents(split_documents, embeddings)
     return db
 
-db = create_embeddings_and_faiss_index(all_docs,api_key)
+db = create_embeddings_and_faiss_index(all_docs,OPENAI_API_KEY)
 
 # Cache the creation of the language model and document chain
 @st.cache_resource
@@ -90,7 +91,7 @@ def create_llm_and_chain(api_key):
     document_chain = create_stuff_documents_chain(llm, prompt)
     return llm, document_chain
 
-llm, document_chain = create_llm_and_chain(api_key)
+llm, document_chain = create_llm_and_chain(OPENAI_API_KEY)
 
 retriever = db.as_retriever(k=3)
 
