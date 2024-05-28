@@ -10,7 +10,7 @@ from langchain_openai import ChatOpenAI
 from langchain.chains import create_retrieval_chain, create_history_aware_retriever
 
 import os
-st.secrets["OPENAI_API_KEY"]
+OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
 
 
 # Cache the loading of pickled data
