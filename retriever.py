@@ -8,13 +8,9 @@ from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_openai import ChatOpenAI
 from langchain.chains import create_retrieval_chain, create_history_aware_retriever
-from config import OPENAI_API_KEY
 
 import os
-## For importing variable from env files 
-from dotenv import load_dotenv
-load_dotenv()
-api_key = os.getenv("OPENAI_API_KEY")
+st.write("OPENAI_API_KEY:", st.secrets["OPENAI_API_KEY"])
 
 
 # Cache the loading of pickled data
